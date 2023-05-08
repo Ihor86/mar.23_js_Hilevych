@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+
+</body>
+</html>
+
+
+<script>
+    let arr;
+    arr = [12, 18, 23, 23, 45];
+    console.log(arr);
+    console.log(arr.length);
+    console.log(arr[1]);
+    console.log(arr[1] + arr[2] + arr[3]); // прямо тут додає їхні числові значення
+    // arr.push = 56;
+    console.log(arr.length);
+    // let arr[5] = 67; //- Let Не потрібно пр створенні едемента
+    arr[5] = 234;
+    arr[6] = 999; //якщо хочемо створити елелмент з індексом більшим, то не спрацює
+
+    console.log(arr);
+
+    let arr2 = [`tyutyu`, 23, true, 234, `ererr`];
+
+    //обє'кти від 20:00
+    console.log(arr2);
+    let anya = {
+        name: "Anna",
+        age: 0.5,
+        vaccinate: true,
+        sister: {
+            name: "Viktoriya",
+            age: 2,
+            vaccinate: true,
+        }
+    }
+    console.log(anya.vaccinate);
+    anya.hobby = `cartoon`;
+    anya.foods = [`chiz`, `apple`, `borshch`];
+    console.log(anya["age"]);
+    anya.age = 3; //переприсвоєння велью
+    console.log(anya);
+    console.log(Array.isArray(anya)); //false
+    console.log(typeof anya); // object
+    anya.toys = ["dog", "cat", "horse"]; // додаємо новий ключ та його значення
+    console.log(anya);
+    anya.toys[2] = 'boll'; // змінєємо елемент масиву, який є велью в О
+
+    console.log(anya);
+    console.log(Array.isArray(anya));
+    anya.sister.bicycle = `tysa`; // додаємо нове поле без let
+    let sisterObject = anya.sister; //ctrl + alt +V
+    console.log(sisterObject);
+    delete anya.vaccinate; // видалення поля в обєкта
+
+
+    // Багатовимірні масиви
+    let arr33 = [23,
+        23,
+        35,
+        [2435,
+            45325,
+            23532]];
+    console.log(arr33);
+    console.log(Array.isArray(arr33)); // true
+    arr33[2] = 5;
+    console.log(arr33); //всерівно змінює, хоч я й дав масив як константу_тобто воно тут так не діє
+    console.log(arr33[(length)]); // не грає
+    // arrConst[length-1] = 3;
+    console.log(arr33);
+    let innerArray = arr33[3][2];
+    console.log(innerArray);
+
+    //від 40.00-47.30_примітивні і ссилрчні типи даних
+    // примітивні - number, boulian, string
+    // якщо робимо копію змінної, і потім ту копію переприсвоюємо, то оригінальна змінна залишається незміненою, бо та копія фактично була клоном
+    // натомість ссилочні (О,М) - кожна копія, це насправді просто обгортка попередньої змінної, а ому при певних змінах в копії трансформується й оригінал
+
+
+    // від 48.00_логічні розгалуження
+    // let age = +prompt(`Скільки тобі років?`);
+    // console.log(age);
+    // if (age > 18) {
+    //     document.write(`<div>orange hub</div>`)
+    // } else {
+    //     document.write(`<div>cartoon hub</div>`);
+    // }
+
+
+    let color = prompt(`Який колір світлофора?`);  //     краще для множинних перевірок
+    switch (color) {
+        case `green`:
+            console.log(`go`);
+            break;
+        case `yellow`:
+            console.log(`be ready`);
+            break;
+        case "red":
+            console.log(`stop!!!`);
+            break;
+        default:
+            console.log(`something wrong!!!`);
+    }
+
+
+    let color6 = prompt(`який колір світлофора?`);
+    let trafic = confirm(`чи є  на дорозі машини???`);
+    console.log(trafic);
+    switch (color6) {
+        case "green" :
+            if (!trafic) {
+                console.log('GO!');} else {
+                console.log(`wait!!!`);}
+            break;
+        case "yellow":
+            console.log(`wait!!!`);
+            break;
+        case "red":
+            console.log(`STOP!!!`);
+            break;
+        default:
+            console.log(`something wrong!!!`);
+    }
+
+</script>
+
