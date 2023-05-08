@@ -38,23 +38,34 @@ console.log(bool1);
 console.log(bool2);
 
 // task 2
-let firstName = `Ihor`;
-let middleName = `Yaroslavovych`;
-let lastName = `Hilevych`;
-let person = firstName + ` ` + middleName + ` ` + lastName;
-console.log(person);
+// let firstName = `Ihor`;
+// let middleName = `Yaroslavovych`;
+// let lastName = `Hilevych`;
+// let person = firstName + ` ` + middleName + ` ` + lastName;
+// console.log(person);
 
 // task 3
-let a = 100;
-let b = '100';
-let c = true;
-console.log(typeof a);
-console.log(typeof b);
-console.log(typeof c);
+// let a = 100;
+// let b = '100';
+// let c = true;
+// console.log(typeof a);
+// console.log(typeof b);
+// console.log(typeof c);
 
 // Task 4
 
-let firstName1 = prompt(`Як тебе звати?`);
-let lastNam1 = prompt(`Вкажи своє прізвище`);
-let age = +prompt(`Твій вік?`);
-console.log('Мене звати ' + firstName1 + " " + lastNam1 + ", мені " + age + ` рр.`);
+// let firstName1 = prompt(`Як тебе звати?`);
+// let lastNam1 = prompt(`Вкажи своє прізвище`);
+// let age = +prompt(`Твій вік?`);
+// console.log('Мене звати ' + firstName1 + " " + lastNam1 + ", мені " + age + ` рр.`);
+// МОЄ
+let x12c = "56757";
+console.log(x12c);
+console.log(typeof x12c);
+let x13s = "1ars-13";
+console.log(x13s);
+console.log(typeof x13s);
+// let w1 = `x13s`/z;
+let w1 = `x13s` + `z`;
+console.log(w1);
+console.log(a);
