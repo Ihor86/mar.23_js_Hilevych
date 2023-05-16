@@ -150,8 +150,18 @@ swap([24, 56, 76, 98], 2, 3);
 console.log(`Task 13`);
 
 function exchange(sumUAH,currencyValues,exchangeCurrency) {
-    let sum = (sumUAH / exchangeCurrency);
-    console.log(sum);
+    if (currencyValues = "USD" || "EUR") {
+        let sum = (sumUAH / exchangeCurrency);
+        console.log(sum);
+    } else {
+
+        console.log(`валюта не обмінюється`)
+    }
+
 
 }
 exchange(5000, `USD`, 40);
+exchange(5000, `PlZ`, 40);
+
+// привіт. по роботі в цілому добре. тільки останнє завдання чуть там складніше. типу ми передаємо обєкт валют.
+// відповдіно тоді потрібен цикл. і іфка щоб перевірити чи є таке поле в масиві і то що ми ввели.

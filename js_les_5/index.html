@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+
+
+
+<script>
+    // function calc (num1, num2, fn) {
+    //     return fn(num1, num2) //тобто тут ми її просто викликаємо і передаємо ті наші два аргументи_ важливо щоб тут всередині головної Ф, назви їх збігалися, а вже, що з ними робити - тобто конкретна дія буде в тій анонімній Ф при виклику головної
+    // }
+    // calc(10, 20, function (num1, num2) {
+    //     console.log((num1 + num2));}) // тут в анонімній назви аргуентів і що з ними робити в тілі Ф_ мають збігатися, але можуть різнитися від тих назв, що є в тілі головної Ф - це не принципово, вони підтягнуться всерівно
+
+
+    function calc2 (num1, num2, fn) {
+        fn(num1, num2);
+    }
+    calc2(140, 230, function (numb1, numb2) {
+        console.log((numb1 * numb2));
+    })
+</script>
+
+
+
+</body>
+</html>
