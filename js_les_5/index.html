@@ -12,11 +12,11 @@
 
 
 <script>
-    // function calc (num1, num2, fn) {
-    //     return fn(num1, num2) //тобто тут ми її просто викликаємо і передаємо ті наші два аргументи_ важливо щоб тут всередині головної Ф, назви їх збігалися, а вже, що з ними робити - тобто конкретна дія буде в тій анонімній Ф при виклику головної
-    // }
-    // calc(10, 20, function (num1, num2) {
-    //     console.log((num1 + num2));}) // тут в анонімній назви аргуентів і що з ними робити в тілі Ф_ мають збігатися, але можуть різнитися від тих назв, що є в тілі головної Ф - це не принципово, вони підтягнуться всерівно
+    function calc (num1, num2, fn) {
+        return fn(num1, num2) //тобто тут ми її просто викликаємо і передаємо ті наші два аргументи_ важливо щоб тут всередині головної Ф, назви їх збігалися, а вже, що з ними робити - тобто конкретна дія буде в тій анонімній Ф при виклику головної
+    }
+    calc(10, 20, function (num1, num2) {
+        console.log((num1 + num2));}) // тут в анонімній назви аргуентів і що з ними робити в тілі Ф_ мають збігатися, але можуть різнитися від тих назв, що є в тілі головної Ф - це не принципово, вони підтягнуться всерівно
 
 
     function calc2 (num1, num2, fn) {
@@ -25,6 +25,276 @@
     calc2(140, 230, function (numb1, numb2) {
         console.log((numb1 * numb2));
     })
+    
+    function adf (arg1, arg2, arg3) {
+        console.log(arg1 + arg2 + arg3);
+    }
+    let adf1 = adf(2, 45, 67); // пишемо її назву + ctrl + alt + V
+    
+
+    function zoo (arg1, arg2, fn) {
+        fn(arg1,arg2);
+    }
+   let zoo2 = zoo(234,435,function (num1,num2) {
+       console.log(num1 * num2); // якщо потірбно разом консоль.лог і ретерн, то ретерн останнім, бо на ньому
+       // Ф припиняє виконуватися
+       return (num1*num2);
+   });
+    console.log(zoo2);
+calc(45,76); //викликаємо раніше, ніж вона була задекларована!!!
+function calc (num1, num2) {
+    console.log(num1 / num2);
+}
+
+calc(45, 34);
+    console.log(calc); //виводить її опис як О
+    console.log(zoo);//виводить її опис як О
+let calc11 = function (arg1, arg2) {
+    console.log(arg1 * arg2);
+}
+
+calc11(23,45); //сalс11 - це просто ОБЄКТ
+    console.log(calc11);//виводить її опис як О
+  calc12 = calc11(324,45); // виводить число
+    console.log(calc11);
+    console.log(calc12); // undefined
+    // мій приклад з рестаргументом
+    let sum = (...nums) =>
+    {let x23 = 0;
+        console.log(nums.length);
+        for (i=0; i<nums.length; i++) {
+            x23 = x23 + nums[i];
+        }
+        console.log(x23);
+    }
+    sum(23,45,67,45);
+
+        function foo(num1, num2, fn) {
+            fn(num1, num2);
+        }
+        // let xexe = fn(34, 67, function (arg1, arg2) { // якщо Ф нічого не почертає, то при виклику її не можна присвоювати певній змінній
+        //     console.log(arg1 + arg2 * arg1);
+        // })
+    // console.log(xexe);
+foo(90, 25, function (arg1, arg2) {
+    console.log(arg1 + arg2 * arg1);
+});
+
+    function fuArgum() { //це мій власний приклад використання arguments - ГРАЄ
+        let result=0;
+        for (let elem of arguments) {
+            console.log(elem);
+            result = result + (+elem);
+        }
+        console.log(result);
+        // console.log(arguments.push(`wewewe`)); - помилка, бо не можна використовуватиФ масивів
+    }
+
+fuArgum(21421, 123123, 23123123, 213123);
+
+    // за допомогою рестаргументс додаємо нові елементи в масив
+    function addToArr(arr, ...argum) {
+        for (const item of argum) {
+            if (typeof item === `number`) {
+                arr[arr.length] = item;
+            }
+        }
+        console.log(arr);
+        // return arr;
+    }
+    addToArr([23, 34, 234, 43], 214, `fhiqebwviewbv`, 32423, 24124);
+
+
+    // лекція 4_ від 1:10 про юзербілдер... якщо просто їм закидати через аргументи імя та вік, то їх потім легко можна перевизначити - це дуже погано
+    // тому робимо Ф, яка повертає О, всередині якого є Ф, а та вже будує О з полями нейм та вік, до яких ми безпосередньо так легко доступу немаємо
+    function userBuider(name, age) {
+        let user={name:name, age:age}
+        let newVar = {
+            getInfo: function () {
+                return `name ${user.name} age - ${user.age}`
+            },
+        };
+        return newVar // вертає воно не юзера, а О newVar!!!
+    }
+    let obj = userBuider1(`petro`, 32); // просто до юзера ми доступитися не можемо... а працюємо з чуваком, який маніпулює юзером
+    console.log(obj.getInfo());
+
+    // всередині тої гол.Ф є О, який може мати не 1 а кілька Ф, які можуть не оише створювати нового юзера, а й
+    // перевизначати окремі поля, напр. збільшувати вік... за потреби ми викликаємо саме ті інші внутріші Ф
+    // юзер тут є приватною локальною змінною, ми прямо о нього доступу не маємо
+    function userBuider2(name, age) {
+        let user={name:name, age:age}
+        let newVar = {
+            getInfo: function () {
+                return `name ${user.name} age - ${user.age}`
+            },
+            setAge: function (age) {
+                if (age > user.age) {
+                    user.age = age;
+                }
+            },
+        };
+        return newVar // вертає воно не юзера, а О newVar!!!
+    }
+
+    let manipulator = userBuider2(`Mykytka`, 32); // просто до юзера ми доступитися не можемо... а працюємо з чуваком, який маніпулює юзером
+    console.log(manipulator.getInfo()); //32
+
+    manipulator.setAge(33); // тут змінємо його вік
+    console.log(manipulator.getInfo());
+
+
+    function bilderFn (name, age) {
+        let user = {
+            name:name, age: age
+        }
+        return {
+            getInfo: function () {
+                return `name ${user.name} age - ${user.age}`
+
+            },
+            setAge: function (age) {
+                if (age > user.age) {
+                    user.age = age;
+                }
+            }
+        }
+
+    }
+
+
+function calc32 (arg1, arg2, fn) {
+    fn(arg1, arg2);
+}
+calc32(324,234,function (aaaa, bbbb) {
+    console.log(aaaa * bbbb);
+})
+
+
+function calc43 (arg1, arg2, arg3, fn) {
+        fn(arg1, arg2, arg3);
+}
+calc43(`werewr`, 23, `u2eiciewb`, function (aaa, bbb, ccc) {
+    console.log(aaa + bbb + ccc);
+})
+
+    // лекція 5_про колбеки
+    let cards = [
+        { cardSuit: 'spade', value: '6', color: 'black' },
+        { cardSuit: 'diamond', value: '6', color: 'red' },
+        { cardSuit: 'heart', value: '6', color: 'red' },
+        { cardSuit: 'clubs', value: '6', color: 'black' },
+        { cardSuit: 'spade', value: '7', color: 'black' },
+        { cardSuit: 'diamond', value: '7', color: 'red' },
+        { cardSuit: 'heart', value: '7', color: 'red' },
+        { cardSuit: 'clubs', value: '7', color: 'black' },
+        { cardSuit: 'spade', value: '8', color: 'black' },
+        { cardSuit: 'diamond', value: '8', color: 'red' },
+        { cardSuit: 'heart', value: '8', color: 'red' },
+        { cardSuit: 'clubs', value: '8', color: 'black' },
+        { cardSuit: 'spade', value: '9', color: 'black' },
+        { cardSuit: 'diamond', value: '9', color: 'red' },
+        { cardSuit: 'heart', value: '9', color: 'red' },
+        { cardSuit: 'clubs', value: '9', color: 'black' },
+        { cardSuit: 'spade', value: '10', color: 'black' },
+        { cardSuit: 'diamond', value: '10', color: 'red' },
+        { cardSuit: 'heart', value: '10', color: 'red' },
+        { cardSuit: 'clubs', value: '10', color: 'black' },
+        { cardSuit: 'spade', value: 'jack', color: 'black' },
+        { cardSuit: 'diamond', value: 'jack', color: 'red' },
+        { cardSuit: 'heart', value: 'jack', color: 'red' },
+        { cardSuit: 'clubs', value: 'jack', color: 'black' },
+        { cardSuit: 'spade', value: 'queen', color: 'black' },
+        { cardSuit: 'diamond', value: 'queen', color: 'red' },
+        { cardSuit: 'heart', value: 'queen', color: 'red' },
+        { cardSuit: 'clubs', value: 'queen', color: 'black' },
+        { cardSuit: 'spade', value: 'king', color: 'black' },
+        { cardSuit: 'diamond', value: 'king', color: 'red' },
+        { cardSuit: 'heart', value: 'king', color: 'red' },
+        { cardSuit: 'clubs', value: 'king', color: 'black' },
+        { cardSuit: 'spade', value: 'ace', color: 'black' },
+        { cardSuit: 'diamond', value: 'ace', color: 'red' },
+        { cardSuit: 'heart', value: 'ace', color: 'red' },
+        { cardSuit: 'clubs', value: 'ace', color: 'black' },
+    ];
+
+    let predicate = function (element) {
+        if (element.color === `red`) {
+            return true
+        } return false;
+    };
+    let cardsFilt = cards.filter(predicate);
+    console.log(cardsFilt); // вивело масив обєктів - карт червоного кольору
+
+
+    let predicate2 = function (element) {
+        if (element.cardSuit === `heart`) {
+            return true;
+        } return false;
+    };
+    let cardsFilterHeart = cards.filter(predicate2);
+    console.log(cardsFilterHeart);
+
+
+    //багаторівнева ітерація_теж через колбек - використання самогос ебе всередині себе
+let arrBoots = [32, 34, 18, 46, [23, 465, 546]]; //треба проітерувати цей масив
+    function iterateArrBoots(arr) {
+        for (const element of arr) {
+            if (Array.isArray(element)) { // тут провіряємо чи взятий елемент часом сам не є масивом
+                iterateArrBoots(element) // якщо ж він масив, то викликаємо нашу Ф вже для нього
+            } else {
+                console.log(element);
+            }
+        }
+    }
+    iterateArrBoots(arrBoots); // грає
+    // якщо тут неправильно прописати то буде СТЕК ОВЕР ФЛО, тобто переповнення стеку виклику функцій
+
+
+
+    let dress = [45, 43, 56, [45, 43, 50]];
+    function itteratorDressArr(arr) {
+        for (const element of arr) {
+            if (Array.isArray(element)) {
+                itteratorDressArr(element)
+            } else {
+                console.log(element);}
+        }
+
+    }
+    itteratorDressArr(dress);
+
+let paperArr = [`a4`, `a2`, `b2`, `a6`, [`a4`, `a2`, `a3`], {name: `vasya`, age: 23}];
+function paperItterator(arr) {
+    for (const element of arr) {
+        if (Array.isArray(element)) {
+            paperItterator(element);
+        } else if (typeof (element)){}
+        else {
+            console.log(element);}
+    }
+
+}
+paperItterator(paperArr);
+
+
+// елементами масиву можуть бути й обєкти, їх теж буде виводити
+
+
+// щоб була можливість проітеруати багаторівневі О, слід ввести ще один ІФ, який буде переіряи, чи не являється цей елемент масивом і чи явлється він обєктом, тому що typeOf якогось Обжекта є object
+function cycle(counter) {
+    console.log(counter);
+    counter++;
+    if (counter>=10) {
+        return;
+    } else {
+        cycle(counter);
+    }
+}
+cycle(3);
+
+
+
 </script>
 
 

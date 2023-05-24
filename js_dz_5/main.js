@@ -54,15 +54,24 @@ ulFoo('Be carefull, please!!!');
 // 7. створити функцію яка створює ul з трьома елементами li. Текст li задати через аргумент всім однаковий. Кількість li визначається другим аргументом, який є числовим (тут використовувати цикл)
 document.write(`Task 7`);
 
-let ulFoo2 = (text, n) => {
+// let ulFoo2 = (text, n) => {
+//     document.write(`<ul>`);
+//     for (let i = 0; i <= n; i++) {
+//         document.write(`<li>${text}</li>`);
+//         // console.log(text);
+//     }
+//     document.write(`<ul>`);
+// }
+
+
+
+let ulFoo2 = (text, num) => {
     document.write(`<ul>`);
-    for (let i = 0; i <= n; i++) {
+    for (i=0; i<num; i++) {
         document.write(`<li>${text}</li>`);
-        // console.log(text);
     }
     document.write(`<ul>`);
 }
-
 ulFoo2('Голос твій, серце твоє...', 12);
 
 // 8. створити функцію яка приймає масив примітивних елементів (числа,стрінги,булеві), та будує для них список
@@ -153,3 +162,6 @@ let exchange = (sumUAH,currencyValues,exchangeCurrency) => {
 }
 exchange(5000, `USD`, 40);
 exchange(5000, `PlZ`, 40);
+
+// МЕНТОР:
+//     привіт. коли 1 аргумент можна і без дужок. останнє завдання там би пасував цикл а так все ок
