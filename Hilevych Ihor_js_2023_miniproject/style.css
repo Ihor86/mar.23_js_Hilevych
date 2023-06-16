@@ -1,0 +1,36 @@
+body {
+    margin: 0;
+}
+
+.users {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    height: 100vh;
+    background-color: #bebaba;
+}
+
+.user {
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 300px;
+    height: 100px;
+    margin: 15px;
+    margin-left: calc(25% - 150px);
+    margin-right: calc(25% - 150px);
+    background: #83f1dd;
+    border: solid 1px black;
+    font-family: "Book Antiqua";
+    font-weight: bold;
+}
+.btnForUserDetails {
+    background: yellow;
+    width: 60%;
+    height: 20%;
+    border: black 1px solid;
+    margin-top: 10%;
+    border-radius: 40%;
+}

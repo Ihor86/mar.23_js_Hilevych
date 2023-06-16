@@ -12,6 +12,9 @@
 
 
 <script>
+
+
+    // колбеки_17-
     function calc (num1, num2, fn) {
         return fn(num1, num2) //тобто тут ми її просто викликаємо і передаємо ті наші два аргументи_ важливо щоб тут всередині головної Ф, назви їх збігалися, а вже, що з ними робити - тобто конкретна дія буде в тій анонімній Ф при виклику головної
     }
@@ -53,6 +56,7 @@ let calc11 = function (arg1, arg2) {
     console.log(arg1 * arg2);
 }
 
+// рестаргумент
 calc11(23,45); //сalс11 - це просто ОБЄКТ
     console.log(calc11);//виводить її опис як О
   calc12 = calc11(324,45); // виводить число
@@ -72,7 +76,7 @@ calc11(23,45); //сalс11 - це просто ОБЄКТ
         function foo(num1, num2, fn) {
             fn(num1, num2);
         }
-        // let xexe = fn(34, 67, function (arg1, arg2) { // якщо Ф нічого не почертає, то при виклику її не можна присвоювати певній змінній
+        // let xexe = fn(34, 67, function (arg1, arg2) { // якщо Ф нічого не повертає, то при виклику її не можна присвоювати певній змінній
         //     console.log(arg1 + arg2 * arg1);
         // })
     // console.log(xexe);
@@ -80,6 +84,7 @@ foo(90, 25, function (arg1, arg2) {
     console.log(arg1 + arg2 * arg1);
 });
 
+    // arguments
     function fuArgum() { //це мій власний приклад використання arguments - ГРАЄ
         let result=0;
         for (let elem of arguments) {
@@ -107,7 +112,7 @@ fuArgum(21421, 123123, 23123123, 213123);
 
     // лекція 4_ від 1:10 про юзербілдер... якщо просто їм закидати через аргументи імя та вік, то їх потім легко можна перевизначити - це дуже погано
     // тому робимо Ф, яка повертає О, всередині якого є Ф, а та вже будує О з полями нейм та вік, до яких ми безпосередньо так легко доступу немаємо
-    function userBuider(name, age) {
+    function userBuider1(name, age) {
         let user={name:name, age:age}
         let newVar = {
             getInfo: function () {
@@ -294,6 +299,35 @@ function cycle(counter) {
 cycle(3);
 
 
+
+// лекція 5_методи стрінгів та масивів
+
+let url = `http://localhost:63342/mar.23_js_Hilevych/js_les_5/index.html?_ijt=lmm2vgvidavsap9oasvpu4qril&_ij_reload=RELOAD_ON_SAVE`
+    console.log(url.substring(url.indexOf(`loc`), url.indexOf(`loc`) + 15)); // localhost:63342 Бо ми знаємо довжину назви хоча і порта і просто їх можемо вивсести так чи присвоїти певній змінній
+
+
+    // метод push - змінює масив, додає елемент в його кінець... а повертає нову довжину масива (її ми можемо присвїти змінній)
+    let arr44 = [23, 45, 56, 67, 78];
+let arrLength = arr44.push(65);
+    console.log(arr44); // [23, 45, 56, 67, 78, 65]
+    console.log(arrLength); // 6
+
+
+    // метод pop
+    let arr45 = [23, 45, 56, 67, 78];
+    let xElem = arr45.pop();
+    console.log(arr45); //[23, 45, 56, 67]
+    console.log(xElem); // 78
+// slice
+    let arr46 = [23, 45, 56, 67, 78];
+    let xSlice = arr46.slice(2,5); // з якого індекса по який не включно... якщо хочу до кінця то пишу останній+1, тобто неіснуючий
+    console.log(arr46); // стартовий масив воно не змінює!!!
+    console.log(xSlice);
+    // splice
+    let arr47 = [23, 45, 56, 67, 78];
+    let xSplice = arr47.splice(2,3); // з якого вирізає і скільки штук
+    console.log(arr47); // [23, 45] стартовий масив змінює!!!
+    console.log(xSplice); // [56, 67, 78]
 
 </script>
 

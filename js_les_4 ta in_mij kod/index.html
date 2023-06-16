@@ -1,0 +1,181 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+
+
+<script>
+    // 14/06/2023
+    let company = [
+        {name: 'Petro', age: 32, status: true},
+        {name: 'Roma', age: 23, status: false},
+        {name: 'Marusyna', age: 29, status: true}
+    ];
+    let x = 1;
+
+    for (const worker of company) {
+        document.write(`worker ${x}`);
+        console.log(worker);
+        document.write(`<ul>`)
+        for (const key in worker) {
+            console.log(`${key} - ${worker[key]}`);
+            document.write(`<li>${key} - ${worker[key]}</li>`)
+        }
+        x++;
+
+        document.write(`</ul>`)
+    }
+
+    // функції
+
+    function calc(a, b) {
+        // console.log(a + b);
+        return a + b;
+    }
+
+    let xxx = calc(2, 5);
+    console.log(xxx);
+
+    function foooo() {
+        console.log(`ok`);
+    }
+
+    let foooo1 = foooo;
+    console.log(foooo1()); // underfind
+    console.log(foooo); // вивело її як обєкт
+
+    //чек в ресторані
+
+    let chayovi = 20;
+
+    function check(...res) {
+        let resultCheck = 0;
+
+        for (const num of res) {
+            console.log(num);
+            resultCheck = resultCheck + num;
+            console.log(resultCheck);
+        }
+        resultCheck = resultCheck + chayovi;
+        document.write(`Загальна вартість товару ${resultCheck} грн.</br>`);
+    }
+
+    // check(23, 34.45, 123, 56);
+    // check(34, 45345, 3434, 34);
+
+    function checkArg() { //тут те саме, але замість рестаргумента використав аргументс
+        let resultCheck = 0;
+
+        for (const num of arguments) {
+            console.log(num);
+            resultCheck = resultCheck + num;
+            console.log(arguments); // виводимо цей псевдомасив, реально це О, який має поля у вигляді індексів від 0 і їхні значення
+            console.log(resultCheck);
+        }
+        resultCheck = resultCheck + chayovi;
+        document.write(`Загальна вартість товару ${resultCheck} грн.</br>`);
+        console.log(`vasya`);
+    }
+
+    checkArg(23, 34.45, 123, 56, 23434);
+    checkArg(34, 45345, 3434, 34, 234344);
+
+  // вправа з рестаргументами... є масив і ікілька нових чисел, які прииходять разом з ним у якості рестаргумента - потрібно вернути новий суцільний масив
+    let arr001 = [232, 5432, 554, 666];
+    function arrCreator(arr1, ...rest) {
+        for (const elem of rest) {
+            arr1[arr1.length] = elem;
+        }
+        return arr1;
+    }
+    let arr002 = arrCreator(arr001, 3243, 4234, 34235);
+    console.log(arr002);
+
+    let qwqwrqw = undefined + 34;
+    console.log(!!qwqwrqw);
+
+    let arrRand = [];
+    function arrRandomCreator(arr, n) {
+        if (typeof n === "number") {
+            for (i = 0; i < n; i++) {
+                arr[i] = Math.random()*100;
+            }
+            console.log(arr);
+        } else {
+            console.log(`n must be a number`);}
+
+    }
+arrRandomCreator(arrRand, 15); // грає, але ще потрібно додатиокруглення
+    console.log(arrRand);
+
+
+    let calc23 = function (...rest) {
+        let result = 0;
+        console.log(result);
+        for (const num of rest) {
+            console.log(num);
+            if (typeof num === "number") {
+                result = result + num;
+                console.log(result);
+            }
+        }
+        return result;
+    }
+    console.log(calc23(23, 12312, 3243, 323));
+
+
+
+    let callc234 = function () {
+        let result = 0;
+        for (const num of arguments) {
+            if (typeof num === "number") {
+                result = result + num;
+            }
+        }
+        return result;
+    }
+    console.log(callc234(423423, 34443, 6767, `wewer`));
+
+// пробую окремо декларувати та ініціалізувати Ф_насправді це вийшла колбек, але десь є помилка
+    function foo34(arg, arg2, fn){
+        fn(arg, arg2);
+        console.log(arg);
+
+        console.log(arg2);
+        console.log(fn);
+    };
+
+ foo34(23,34,function (num1,num2) { // не грає
+     // console.log(num1 + num2);}); //грає
+    return num1 + num2;}); //грає
+
+  // let retrtt =  foo34(23,34,function (num1,num2) {return num1+num2});
+  //   console.log(retrtt);
+
+let calcStr = a => a*3;
+let calc99 = calcStr(8);
+    console.log(calc99);
+
+
+    // анонімна
+    // (function (num1, num2){console.log(num1 * num2 * 25);}(23, 24));
+    (function (...rest) {
+        let result = 1;
+        for (const elem of rest) {
+            if (typeof elem === "number") {
+                result = result * elem;
+            }
+        }
+        console.log(result);
+    }(34, 2132, `erweq`, 2323, 3434));
+
+
+</script>
+</body>
+</html>
